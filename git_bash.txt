@@ -1,0 +1,389 @@
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA
+$ pwd
+/c/Users/Kristina/Desktop/QA
+
+ 1. Сделать папку dir_1
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA
+$ mkdir dir_1
+
+ 2. Зайти в папку dir_1
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA
+$ cd dir_1
+
+ 3. Создать папку inner_dir_1
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ mkdir inner_dir_1
+
+ 4. Посмотреть где ты находишься
+  
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ pwd
+/c/Users/Kristina/Desktop/QA/dir_1
+
+ 5. Находясь в папке dir_1 создать пустой текстовый файл tf_1.txt
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ touch tf_1.txt
+
+ 6. Находясь в папке dir_1 через команду cat создать текстовый файл tf_2.txt со следующими строками:
+ - the first 1
+ - the second 2
+ - the third 3
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ cat > tf_2.txt
+- the first 1
+- the second 2
+- the third 3
+
+ 7. Зайти в папку inner_dir_1
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ cd inner_dir_1
+
+ 8. Через cat сделать текстовый файл tf_3.txt  c любыми строками
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1/inner_dir_1
+$ cat > tf_3.txt
+aa
+bb
+cc
+
+
+ 9. Через cat добавить в текстовый файл tf_3.txt строку “the second 2”
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1/inner_dir_1
+$ cat >> tf_3.txt
+the second 2
+
+ 10. Через cat добавить в текстовый файл tf_3.txt строку “the sec 2”
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1/inner_dir_1
+$ cat >> tf_3.txt
+the sec 2
+
+ 11. Через cat добавить в текстовый файл tf_2.txt строку “the sec 3”
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1/inner_dir_1
+$ cat >> ../tf_2.txt
+the sec 3
+
+ 12. Через cat добавить в текстовый файл tf_3.txt строку “the SeCoNd 2”
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1/inner_dir_1
+$ cat >> tf_3.txt
+the SeCoNd 2
+
+ 13. Через cat добавить в текстовый файл tf_2.txt строку “the seConD 2”
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1/inner_dir_1
+$ cat >> ../tf_2.txt
+the seConD 2
+
+ 14. Сделать текстовый файл tf_4.txt в котором будет 15 строк.
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1/inner_dir_1
+$  cat > tf_4.txt
+11
+22
+33
+44
+55
+66
+77
+88
+99
+10
+11
+12
+13
+14
+15
+
+ 15. Сделать текстовый файл tF_5.txt в котором будет 13 строк.
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1/inner_dir_1
+$ cat > tF_5.txt
+we
+qw
+e
+sd
+s
+f
+g
+v
+r
+t
+c
+s
+13
+
+ 16. Вывести список всех файлов в папке.
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1/inner_dir_1
+$ ls
+tF_5.txt  tf_3.txt  tf_4.txt
+
+ 17. Выйти из папки inner_dir_1
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1/inner_dir_1
+$ cd ..
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/Neuer Ordner/dir_1
+$ ls
+inner_dir_1/  tf_1.txt  tf_2.txt
+
+
+ 18. Вывести содержимое файла tf_3.txt в терминал. 
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ cat ./inner_dir_1/tf_3.txt
+aa
+bb
+cc
+the second 2
+the sec 2
+the seCoNd 2
+
+ 19. Найти путь к файлу tf_4.txt
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ find -name "tf_4.txt"
+./inner_dir_1/tf_4.txt
+
+ 20. Отчистить файл tf_4.txt от содержимого без удаления самого файла.
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ echo > ./inner_dir_1/tf_4.txt
+
+ 21. Найти путь к файлам у которых есть  “tf” в названии.
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ find . -name '*tf*'
+./inner_dir_1/tf_3.txt
+./inner_dir_1/tf_4.txt
+./tf_1.txt
+./tf_2.txt
+
+ 22. Найти путь к файлам у которых есть  “tf” в названии и буквы в любом регистре.
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ find . -iname '*tf*'
+./inner_dir_1/tf_3.txt
+./inner_dir_1/tf_4.txt
+./inner_dir_1/tF_5.txt
+./tf_1.txt
+./tf_2.txt
+
+ 23. Найти строки в файлах где есть комбинация букв “sec” в текущей папке 
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ grep -r sec *.txt
+tf_2.txt:- the second 2
+tf_2.txt:the sec 3
+
+
+$ cat tf_2.txt
+- the first 1
+- the second 2
+- the third 3
+the sec 3
+the seConD 2
+
+ 24. Найти строки в файлах где есть комбинация букв “sec” в любом регистре в текущей папке
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ grep -ri sec *txt
+tf_2.txt:- the second 2
+tf_2.txt:the sec 3
+tf_2.txt:the seConD 2
+
+ 25. Найти строки в файлах где есть только комбинация букв “sec” в текущей папке
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ grep -rw sec *.txt
+tf_2.txt:the sec 3 
+
+ 26. Найти строки в файлах где есть только комбинация букв “sec” в любом регистре в текущей папке
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ grep -rwi sec *.txt
+tf_2.txt:the sec 3
+
+ 27. Найти строки в файлах где есть комбинация букв “second” в текущей папке
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ grep -r second *.txt
+tf_2.txt:- the second 2
+
+ 28. Найти строки в файлах где есть комбинация букв “second” в любом регистре в текущей папке
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ grep -ri second *.txt
+tf_2.txt:- the second 2
+tf_2.txt:the seConD 2
+
+ 29. Найти строки в файлах где есть комбинация букв “second” во всех папках ниже уровнем
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ grep -ri second ./inner_dir_1
+./inner_dir_1/tf_3.txt:the second 2
+./inner_dir_1/tf_3.txt:the SeCoNd 2
+
+ 30. Найти только путь и название файла в строках которых есть комбинация букв “second” в текущей папке
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ grep -l second *txt
+tf_2.txt
+ 
+ 31. Найти все строки во всех файлах где нет комбинации “second”
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ grep -r -v -i second
+inner_dir_1/tf_3.txt:aa
+inner_dir_1/tf_3.txt:bb
+inner_dir_1/tf_3.txt:cc
+inner_dir_1/tf_3.txt:the sec 2
+inner_dir_1/tF_5.txt:we
+inner_dir_1/tF_5.txt:qw
+inner_dir_1/tF_5.txt:e
+inner_dir_1/tF_5.txt:sd
+inner_dir_1/tF_5.txt:s
+inner_dir_1/tF_5.txt:f
+inner_dir_1/tF_5.txt:g
+inner_dir_1/tF_5.txt:v
+inner_dir_1/tF_5.txt:t
+inner_dir_1/tF_5.txt:c
+inner_dir_1/tF_5.txt:s
+inner_dir_1/tF_5.txt:w
+inner_dir_1/tF_5.txt:13
+tf_2.txt:- the first 1
+tf_2.txt:- the third 3
+tf_2.txt:the sec 3
+
+ 32. Найти только название и путь к файлам где нет комбинации “second”  
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ grep -r -L -i second
+inner_dir_1/tf_4.txt
+inner_dir_1/tF_5.txt
+tf_1.txt
+
+
+ 33. Вывести в терминал 4 последних строк любого текстового файла
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ cd inner_dir_1
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/Neuer Ordner/dir_1/inner_dir_1
+$ cat tF_5.txt
+we
+qw
+e
+sd
+s
+f
+g
+v
+t
+c
+s
+w
+13
+
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1/inner_dir_1
+$ tail -4 tF_5.txt
+c
+s
+w
+13
+
+ 34. Вывести в терминал 4 первые строки любого текстового файла.
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1/inner_dir_1
+$ head -4 tF_5.txt
+we
+qw
+e
+sd
+
+ 35. Команда в одну строку. Создать папку и создать текстовый файл с содержиммым.
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/Neuer Ordner/dir_1/inner_dir_1
+$ cd ..
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ mkdir papka; cat > e.txt
+oo
+pp
+aa
+
+
+ 36. Команда в одну строку. Переместить в любую одну папку текстовые файлы у которых в содержимом есть слово “sec” 
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ find . -type f | xargs -r grep -l "sec" | xargs -r mv -t papka
+
+
+* grep -r sec* |xargs -a | mv -t papka
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ ls papka
+tf_2.txt  tf_3.txt
+
+ 37. Команда в одну строку. Скопировать в любую одну папку текстовые файлы у которых в содержимом есть слово “sec”
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ find . -type f | xargs -r grep -l "sec" | xargs -r cp -t inner_dir_1
+
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/Neuer Ordner/dir_1
+$ ls inner_dir_1
+tF_5.txt  tf_2.txt  tf_3.txt  tf_4.txt
+
+
+
+ ??? 38. Команда в одну строку. Найти все строки c “sec” во всех текстовых файлах, скопировать и вставить эти строки в один новый созданный текстовый файл.
+ 
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ grep -Rlw sec | xargs cat > somefile.txt
+
+
+только содержимое файла,не строки
+
+Bako Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ cat somefile.txt
+the sec 3
+the seConD 2aa
+bb
+cc
+the second 2
+the sec 2
+the SeCoNd 2the sec 3
+the seConD 2aa
+bb
+cc
+the second 2
+the sec 2
+the SeCoNd 2
+
+ 
+39. Команда в одну строку. Удалить текстовые файлы у которых в содержимом есть слово “sec”
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ find . -type f | xargs -r grep -l "sec" | xargs -r rm
+
+ 40. Просто вывести в терминал строку “Good job!!”
+
+Kristina@Kristina-PC MINGW64 ~/Desktop/QA/dir_1
+$ echo Good job! ! 
+Good job! !
+
+
+
+
+
